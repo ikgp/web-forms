@@ -11,5 +11,9 @@
     "@types/node": "^18.11.18",
     "nuxt": "^3.1.0"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.3.1",
+  "dependencies": {
+    "nextcloud-node-client": "^1.8.1",
+    "pdfjs-dist": "^3.2.146"
+  }
 }
