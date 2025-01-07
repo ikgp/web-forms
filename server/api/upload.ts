@@ -19,10 +19,9 @@ export default defineEventHandler(async (event) => {
     return "Body should contain a JSON-encoded object with a data property that is a base64-encoded PDF file, and a filename property that is a string.";
   }
   const client = new Client(server);
-  const folder = await client.getFolder("/Anmeldungen_automatisiert");
+  let folder = await client.getFolder("/Anmeldungen_automatisiert");
   if (!folder) {
-    setResponseStatus(500);
-    return;
+    folder = await client.createFolder("/Anmeldungen_automatisiert");
   }
   const existingFile = await folder.getFile(`${body.filename}`);
   if (existingFile) {
