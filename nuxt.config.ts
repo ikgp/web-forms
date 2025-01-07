@@ -7,4 +7,6 @@ export default defineNuxtConfig({
       ncUrl: process.env.NEXTCLOUD_SERVER,
     },
   },
+
+  compatibilityDate: "2025-01-07",
 });
