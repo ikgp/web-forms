@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import "pdfjs-dist/web/pdf_viewer.css";
-import type { PDFViewer } from "pdfjs-dist/web/pdf_viewer.mjs";
+import type { PDFViewer } from "pdfjs-dist/web/pdf_viewer";
 
 
 const viewerContainer = ref<HTMLDivElement | null>(null);
@@ -31,7 +31,7 @@ async function initPage() {
   submitted.value = false;
   loading.value = false;
   const pdfJsLib = await import("pdfjs-dist");
-  const pdfJs = await import("pdfjs-dist/web/pdf_viewer.mjs");
+  const pdfJs = await import("pdfjs-dist/web/pdf_viewer");
   pdfJsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
   const eventBus = new pdfJs.EventBus();
   const linkService = new pdfJs.PDFLinkService({
@@ -59,7 +59,7 @@ async function onSubmit() {
   const base64pdf = btoa(
     pdf.reduce((data, byte) => data + String.fromCharCode(byte), "")
   );
-  
+
   // Info:
   // 8R and 5R are the internal IDs of the fields that contain the first and last name respectively
   // These depend on the PDF document and need to be adjusted accordingly if the PDF is replaced
