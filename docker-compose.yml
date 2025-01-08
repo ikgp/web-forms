@@ -2,9 +2,5 @@ services:
   main:
     build:
       context: .
-      args:
-        NEXTCLOUD_USER: REPLACEME
-        NEXTCLOUD_PW: REPLACEME
-        NEXTCLOUD_SERVER: REPLACEME
     ports:
       - "3000:3000"
